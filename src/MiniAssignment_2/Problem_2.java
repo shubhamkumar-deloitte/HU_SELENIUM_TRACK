@@ -18,8 +18,15 @@ public class Problem_2 {
         driver.get("https://phptravels.com/demo");
         System.out.println("opened the url "+ driver.getCurrentUrl());
 
-
-
-
+        String PageTitle1= driver.getTitle();
+        checktitle(PageTitle1);
+    }
+    public static void checktitle(String title)
+    {
+        if(title.contains("PHPTRAVELS")){
+            System.out.println("PASS");
+        }else{
+            System.out.println("FAIL");
+        }
     }
 }
