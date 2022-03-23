@@ -34,6 +34,13 @@ public class Problem_2 {
         System.out.println("Navigated back to previous window");
         System.out.println("Url of the current tab is "+ driver.getCurrentUrl());
         driver.findElement(By.xpath("//nav[@class='clearfix']/child::a[2]")).click();
+        System.out.println("clicked on pricing option");
+
+        driver.navigate().back();
+        System.out.println("navigated backward");
+        driver.navigate().refresh();
+        System.out.println("page refreshed");
+        driver.quit();
 
     }
     public static void checktitle(String title)
