@@ -28,6 +28,12 @@ public class Problem_2 {
         String PageTitle2=driver.getTitle();
         System.out.println("Second Page Title is "+PageTitle2);
         CheckBothTitle(PageTitle1,PageTitle2);
+        System.out.println("Both Title Checked");
+
+        driver.switchTo().window(parentWindow);
+        System.out.println("Navigated back to previous window");
+        System.out.println("Url of the current tab is "+ driver.getCurrentUrl());
+
     }
     public static void checktitle(String title)
     {
