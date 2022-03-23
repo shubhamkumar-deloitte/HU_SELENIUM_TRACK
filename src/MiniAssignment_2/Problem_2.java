@@ -33,6 +33,7 @@ public class Problem_2 {
         driver.switchTo().window(parentWindow);
         System.out.println("Navigated back to previous window");
         System.out.println("Url of the current tab is "+ driver.getCurrentUrl());
+        driver.findElement(By.xpath("//nav[@class='clearfix']/child::a[2]")).click();
 
     }
     public static void checktitle(String title)
