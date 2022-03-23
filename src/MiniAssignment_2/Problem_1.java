@@ -11,5 +11,9 @@ public class Problem_1 {
         WebDriver driver=new ChromeDriver();
 
         driver.manage().window().maximize();
+        driver.get("https://phptravels.com/demo");
+
+        String pageTitle= driver.getTitle();
+        System.out.println(pageTitle);
     }
 }
