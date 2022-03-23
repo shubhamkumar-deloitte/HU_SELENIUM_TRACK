@@ -14,22 +14,28 @@ public class Problem_1 {
 
         driver.get("https://phptravels.com/demo");
         driver.manage().window().maximize();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         String parentWindow= driver.getWindowHandle();
 
         String pageTitle= driver.getTitle();
-        System.out.println("fist page title"+pageTitle);
+        //System.out.println("fist page title"+pageTitle);
         checkTitle(pageTitle);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/header/div/nav/a[4]")).click();
         String secondPageTitle= driver.getTitle();
-        System.out.println("second page title"+secondPageTitle);
+        //System.out.println("second page title"+secondPageTitle);
         CheckBothTitle(pageTitle,secondPageTitle);
         Thread.sleep(2000);
         driver.switchTo().window(parentWindow);
         System.out.println("printing the current url "+driver.getCurrentUrl());
         driver.findElement(By.xpath("//nav[@class='clearfix']/child::a[2]")).click();
+        Thread.sleep(2000);
+        driver.navigate().back();
         Thread.sleep(1000);
+        driver.navigate().refresh();
+        Thread.sleep(2000);
+        driver.quit();
+
 
 
         //driver.quit();
