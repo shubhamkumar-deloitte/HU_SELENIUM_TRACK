@@ -14,6 +14,19 @@ public class Problem_1 {
         driver.get("https://phptravels.com/demo");
 
         String pageTitle= driver.getTitle();
-        System.out.println(pageTitle);
+        //System.out.println(pageTitle);
+        checkTitle(pageTitle);
+        driver.quit();
+    }
+
+    public static void checkTitle(String pageTitle)
+    {
+        if(pageTitle.contains("PHPTRAVELS"))
+        {
+            System.out.println("PASS");
+        }else
+        {
+            System.out.println("FAIL");
+        }
     }
 }
