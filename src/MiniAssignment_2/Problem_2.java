@@ -11,7 +11,10 @@ public class Problem_2 {
         WebDriver driver;
         ChromeOptions options=new ChromeOptions();
         options.addArguments("headless");
-        driver=new ChromeDriver();
+        driver=new ChromeDriver(options);
+
+
+
 
     }
 }
