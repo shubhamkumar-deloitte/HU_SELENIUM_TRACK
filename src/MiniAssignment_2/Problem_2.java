@@ -1,6 +1,7 @@
 package MiniAssignment_2;
 
 import org.checkerframework.checker.units.qual.C;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -19,7 +20,13 @@ public class Problem_2 {
         System.out.println("opened the url "+ driver.getCurrentUrl());
 
         String PageTitle1= driver.getTitle();
+        System.out.println("First page Title is "+PageTitle1);
         checktitle(PageTitle1);
+
+        driver.findElement(By.xpath("/html/body/header/div/nav/a[4]")).click();
+        String PageTitle2=driver.getTitle();
+        System.out.println("Second Page Title is "+PageTitle2);
+
     }
     public static void checktitle(String title)
     {
