@@ -12,6 +12,11 @@ public class Problem_2 {
         ChromeOptions options=new ChromeOptions();
         options.addArguments("headless");
         driver=new ChromeDriver(options);
+        driver.manage().window().maximize();
+        System.out.println("Browser window maximized");
+
+        driver.get("https://phptravels.com/demo");
+        System.out.println("opened the url "+ driver.getCurrentUrl());
 
 
 
