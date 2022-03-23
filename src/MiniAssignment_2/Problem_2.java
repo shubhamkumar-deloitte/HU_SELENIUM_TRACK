@@ -17,6 +17,7 @@ public class Problem_2 {
         System.out.println("Browser window maximized");
 
         driver.get("https://phptravels.com/demo");
+        String parentWindow= driver.getWindowHandle();
         System.out.println("opened the url "+ driver.getCurrentUrl());
 
         String PageTitle1= driver.getTitle();
@@ -26,7 +27,7 @@ public class Problem_2 {
         driver.findElement(By.xpath("/html/body/header/div/nav/a[4]")).click();
         String PageTitle2=driver.getTitle();
         System.out.println("Second Page Title is "+PageTitle2);
-
+        CheckBothTitle(PageTitle1,PageTitle2);
     }
     public static void checktitle(String title)
     {
@@ -34,6 +35,16 @@ public class Problem_2 {
             System.out.println("PASS");
         }else{
             System.out.println("FAIL");
+        }
+    }
+    public static void CheckBothTitle(String title1,String title2)
+    {
+        //System.out.println(title1.equals(title2));
+        if(title1.equals(title2))
+        {
+            System.out.println("Pass");
+        }else{
+            System.out.println("Fail");
         }
     }
 }
