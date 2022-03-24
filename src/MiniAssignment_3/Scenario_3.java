@@ -1,5 +1,6 @@
 package MiniAssignment_3;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -10,6 +11,9 @@ public class Scenario_3 {
         driver.manage().window().maximize();
 
         driver.get("https://the-internet.herokuapp.com/");
+
+        driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[29]/a")).click();
+
 
     }
 }
