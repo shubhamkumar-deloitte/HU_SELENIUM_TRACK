@@ -1,12 +1,12 @@
 package MiniAssignment_3;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
 
 import java.io.File;
+import java.io.IOException;
 
 public class Scenario_4 {
     public static void main(String[] args) throws  InterruptedException {
@@ -15,37 +15,93 @@ public class Scenario_4 {
         WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
 
-        driver.get("https://www.goibibo.com/");
-        driver.findElement(By.xpath("//ul[@class='sc-fvxzrP cCkBwj']/child::li[2]")).click();
-        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/div/div")).click();
-        driver.findElement(By.xpath("//div[@class='sc-cidDSM dOEpbS']/child::input")).click();
-        driver.findElement(By.xpath("//div[@class='sc-cidDSM dOEpbS']/child::input")).sendKeys("New York");
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/div/div[2]/ul/li[1]/div")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[2]/div/div[2]/div/input")).sendKeys("seattle");
+       launchUrl(driver);
+       selectRoundWayTrip(driver);
+       selectFlights(driver);
+       selectDepartureDate(driver);
+       selectPassenger(driver);
+       selectReturnDate(driver);
+       searchFlights(driver);
 
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("//*[@id=\"autoSuggest-list\"]/li[1]/div")).click();
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/span[2]")).click();
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/span[2]")).click();
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[3]/div[2]/div[2]/div/div/div[2]/div[2]/div[3]/div[4]/div[6]/p")).click();
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[3]/div[2]/div[3]/span[2]")).click();
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[5]/div[2]/div[3]/a[2]")).click();
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[4]/div")).click();
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[4]/div[2]/div[2]/div/div/div[2]/div[2]/div[3]/div[2]/div[6]")).click();
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[4]/div[2]/div[3]/span[2]")).click();
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[5]/div[2]/div[3]/a[2]")).click();
-        driver.findElement(By.xpath("//span[@class='sc-fHeRUh jHgPBA']")).click();
-        //search done
 
-//        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[1]/div[2]/div/div")).click();
-//        driver.findElement(By.xpath("//div[@class='sc-cidDSM dOEpbS']/child::input")).click();
-//     driver.findElement(By.xpath("//div[@class='sc-cidDSM dOEpbS']/child::input")).sendKeys("Seattle");
-//     Thread.sleep(1000);
-//     driver.findElement(By.xpath("//*[@id=\"autoSuggest-list\"]/li[1]/div")).click();
+       driver.quit();
+
+
+
+
+
+
+
+
+
+
 
     }
 
+    public static  void launchUrl(WebDriver driver){
+
+        driver.get("https://www.goibibo.com/");
+
+    }
+
+    public static void selectRoundWayTrip(WebDriver driver) {
+
+        driver.findElement(By.xpath("//ul[@class='sc-fvxzrP cCkBwj']/child::li[2]")).click();
+    }
+    public static  void selectFlights(WebDriver driver) throws  InterruptedException{
+        driver.findElement(By.xpath("//div[@class='sc-fotOHu hmnmkS']/child::div[1]")).click();
+        driver.findElement(By.xpath("//div[@class='sc-cidDSM dOEpbS']/child::input")).click();
+
+        driver.findElement(By.xpath("//div[@class='sc-cidDSM dOEpbS']/child::input")).sendKeys("New York");
+        Thread.sleep(1000);
+
+        driver.findElement(By.xpath("//ul[@class='sc-caiLqq jnUsvh']/child::li[1]")).click();
+
+       Thread.sleep(1000);
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[2]/div/div[2]/div/input")).sendKeys("seattle");
+
+
+       Thread.sleep(1000);
+
+       driver.findElement(By.xpath("//ul[@id='autoSuggest-list']//child::li[2]")).click();
+       Thread.sleep(1000);
+
+    }
+    public static  void selectDepartureDate(WebDriver driver){
+                driver.findElement(By.xpath("//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")).click();
+        driver.findElement(By.xpath("//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")).click();
+        driver.findElement(By.xpath("//div[@aria-label='Fri Jun 24 2022']")).click();
+       driver.findElement(By.xpath("//span[@class='fswTrvl__done']")).click();
+    }
+    public static  void selectPassenger(WebDriver driver) throws InterruptedException {
+                driver.findElement(By.xpath("//a[@class='sc-dtMgUX daltrV']")).click();
+                Thread.sleep(1000);
+    }
+    public static void selectReturnDate(WebDriver driver) throws InterruptedException {
+                driver.findElement(By.xpath("//p[text()='Click to add a return flight for better discounts']")).click();
+        driver.findElement(By.xpath("//div[@aria-label='Fri Jul 08 2022']")).click();
+       driver.findElement(By.xpath("//span[@class='fswTrvl__done']")).click();
+       Thread.sleep(1500);
+    }
+    public static void searchFlights(WebDriver driver) throws InterruptedException {
+        driver.findElement(By.xpath("//a[@class='sc-dtMgUX daltrV']")).click();
+        driver.findElement(By.xpath("//span[@class='sc-fHeRUh jHgPBA']")).click();
+        Thread.sleep(3000);
+        //String url= driver.getCurrentUrl();
+        takeScreenshot(driver);
+    }
+    public static void takeScreenshot(WebDriver driver){
+//
+
+        try {
+            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            //The below method will save the screen shot in destination directory with name "screenshot.png"
+            FileHandler.copy(scrFile, new File(System.getProperty("user.dir")+"/src/"+"sample.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
 }
