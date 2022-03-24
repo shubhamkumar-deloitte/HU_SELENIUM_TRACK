@@ -21,7 +21,7 @@ public class Scenario_2 {
         WebElement source= driver.findElement(By.id("draggable"));
         WebElement dest=driver.findElement(By.id("droppable"));
 
-        builder.dragAndDrop(source,dest).build().perform();
+        builder.dragAndDrop(source,dest).perform();
 
         System.out.println(source.getText());
     }

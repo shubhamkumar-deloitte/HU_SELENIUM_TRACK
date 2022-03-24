@@ -14,8 +14,19 @@ public class Scenario_3 {
 
         driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[29]/a")).click();
         driver.findElement(By.xpath("//*[@id=\"content\"]/div/ul/li[3]/button")).click();
-        driver.switchTo().alert().sendKeys("Ex-Test");
+        String input="Ex-Test";
+        driver.switchTo().alert().sendKeys(input);
         driver.switchTo().alert().accept();
+
+        String text=driver.findElement(By.xpath("//*[@id=\"result\"]")).getText();
+
+        System.out.println(text);
+        if(text.contains(input))
+        {
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
 
 
 
