@@ -38,6 +38,7 @@ public class Scenario_4 {
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[4]/div[2]/div[3]/span[2]")).click();
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[5]/div[2]/div[3]/a[2]")).click();
         driver.findElement(By.xpath("//span[@class='sc-fHeRUh jHgPBA']")).click();
+        //search done
 
 //        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[1]/div[2]/div/div")).click();
 //        driver.findElement(By.xpath("//div[@class='sc-cidDSM dOEpbS']/child::input")).click();
