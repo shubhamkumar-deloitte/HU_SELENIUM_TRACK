@@ -13,6 +13,10 @@ public class Scenario_3 {
         driver.get("https://the-internet.herokuapp.com/");
 
         driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[29]/a")).click();
+        driver.findElement(By.xpath("//*[@id=\"content\"]/div/ul/li[3]/button")).click();
+        driver.switchTo().alert().sendKeys("Ex-Test");
+        driver.switchTo().alert().accept();
+
 
 
     }
