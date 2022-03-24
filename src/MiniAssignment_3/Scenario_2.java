@@ -16,13 +16,15 @@ public class Scenario_2 {
 
         driver.get("https://jqueryui.com/droppable/");
 
-        driver.switchTo().frame("demo-frame");
+
         Actions builder=new Actions(driver);
-        WebElement source= driver.findElement(By.id("draggable"));
-        WebElement dest=driver.findElement(By.id("droppable"));
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@class='demo-frame']")));
+        WebElement source= driver.findElement(By.xpath("//div[@id='draggable']"));
+        WebElement dest=driver.findElement(By.xpath("//div[@id='droppable']"));
 
-        builder.dragAndDrop(source,dest).perform();
+       builder.dragAndDrop(source,dest).build().perform();
 
-        System.out.println(source.getText());
+       driver.switchTo().defaultContent();
+
     }
 }
